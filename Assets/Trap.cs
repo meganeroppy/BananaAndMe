@@ -18,5 +18,4 @@ public class Trap : MonoBehaviour {
 			moveTargets[i].GetComponent<BlockingIdol>().Blocking();
 		}
 	}
-
 }
