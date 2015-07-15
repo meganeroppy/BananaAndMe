@@ -1,0 +1,51 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class BlockingIdol : MonoBehaviour {
+
+	private float defaultPosY;
+
+	[SerializeField]
+	private float moveOffsetPosY = 50f;
+	private float moveTargetPosY = 0f;
+
+	[SerializeField]
+	private float moveSpeed = 2.5f;
+
+	private bool blockFlug = false;
+
+	// Use this for initialization
+	void Start () {
+		defaultPosY = this.transform.localPosition.y;
+
+		if(moveOffsetPosY < 0){
+			moveSpeed *= -1;
+		}
+		moveTargetPosY = defaultPosY + moveOffsetPosY;
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if(blockFlug){
+			float curPosY = this.transform.localPosition.y;
+			float distance = Mathf.Abs( moveTargetPosY - curPosY );
+			if( distance  <  0.1f ){
+				blockFlug = false;
+			}else{
+				this.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
+			}
+		}
+	}
+
+	private void OnTriggerEnter(Collider col){
+		if(col.tag == "Player"){
+			Blocking();
+		}
+	}
+
+	public void Blocking(){
+		blockFlug = true;
+
+	}
+}
