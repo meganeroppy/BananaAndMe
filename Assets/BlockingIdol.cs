@@ -38,11 +38,7 @@ public class BlockingIdol : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerEnter(Collider col){
-		if(col.tag == "Player"){
-			Blocking();
-		}
-	}
+
 
 	public void Blocking(){
 		blockFlug = true;
