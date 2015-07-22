@@ -17,7 +17,7 @@ public class banana : MonoBehaviour {
 		//this.transform.rotation = playerCam.rotation;
 
 
-		Debug.Log("banana rot:" + this.transform.rotation.eulerAngles + "playerCam rot:" + playerCam.rotation.eulerAngles);
+//		Debug.Log("banana rot:" + this.transform.rotation.eulerAngles + "playerCam rot:" + playerCam.rotation.eulerAngles);
 
 	}
 }
